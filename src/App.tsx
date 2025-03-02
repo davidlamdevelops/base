@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Todo } from './types';
+import Child from './Child';
 
 interface AppProps {
   toDo: Todo
@@ -29,6 +30,7 @@ function App(props: AppProps) {
     <>
       Hello world: {name}
       <div id="something-else-container">Something else: {somethingElse.current}</div>
+      <Child status="marked" />
     </>
   )
 }
