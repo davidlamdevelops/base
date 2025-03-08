@@ -12,6 +12,6 @@ const toDo: Todo = {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App toDo={toDo} />
+    <App toDo={toDo} name={{test: 'hey'}} />
   </StrictMode>,
 )
