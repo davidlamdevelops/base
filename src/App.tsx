@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import AnotherComponent from './AnotherComponent';
 import { Todo } from './types';
 import { UnionOmit } from './utils/types';
 import Child from './Child';
@@ -7,6 +8,28 @@ type Event = {
   id: string,
   test: string,
 }
+
+type Item = {
+  id: string,
+  more: Event[],
+}
+
+const items: Item[] = [
+  {
+    id: '1',
+    more: [{
+      id: '1',
+      test: 'another',
+    }],
+  },
+  {
+    id: '2',
+    more: [{
+      id: '2',
+      test: 'another again'
+    }]
+  }
+]
 
 interface AppProps {
   toDo: Todo,
@@ -56,6 +79,7 @@ function App(props: AppProps) {
       Hello world: {name}
       <div id="something-else-container">Something else: {somethingElse.current}</div>
       <Child status="marked" />
+      <AnotherComponent items={items} />
     </>
   )
 }
